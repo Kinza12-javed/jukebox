@@ -11,7 +11,7 @@ test.describe('Step 3 — features in the browser match Node', () => {
       test.skip(!fs.existsSync(nodePath), 'run vitest first (it writes the Node results)');
       test.skip(!!process.env.BASE_URL, 'imports /src modules: dev server only');
       const node = JSON.parse(fs.readFileSync(nodePath, 'utf8'));
-      await page.goto('/');
+      await page.goto('./');
       const br = await page.evaluate(async ([type, file]) => {
         const fr = await import('/src/core/frames.js'); const fe = await import('/src/core/features.js');
         const v = await fr.loadVideo(`/samples/videos/${file}.mp4`);
@@ -153,7 +153,7 @@ test.describe('Step 8 — accessibility', () => {
     const reqs = [];
     page.on('request', (r) => reqs.push(r.url()));
     await page.emulateMedia({ forcedColors: 'active', reducedMotion: 'reduce' });
-    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.goto('./', { waitUntil: 'networkidle' });
     const st = await page.evaluate(() => {
       const g = getComputedStyle(document.querySelector('.glass'));
       return { backdrop: g.backdropFilter, border: g.borderTopStyle, shadow: g.boxShadow };
@@ -215,7 +215,7 @@ test.describe('Step 7 — export', () => {
 
 test('Step 7 — no MediaRecorder: video button hidden, WAV still works, the note says why', async ({ page }) => {
   await page.addInitScript(() => { delete window.MediaRecorder; });
-  await page.goto('/');
+  await page.goto('./');
   await page.click('label.seg:has-text("Picture")');
   await generateAndWait(page);
   await expect(page.locator('#dl-video')).toBeHidden();
@@ -256,7 +256,7 @@ async function setup(page) {
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto('/'); await page.evaluate(PAGE_HELPERS);
+  await page.goto('./'); await page.evaluate(PAGE_HELPERS);
   return errors;
 }
 async function generateAndWait(page) { // there is no Generate button since 2026-11-15; same code path as the G key
