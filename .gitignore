@@ -1,0 +1,8 @@
+node_modules
+dist
+tmp
+test-results
+playwright-report
+# the owner's original full-size videos (138 MB) stay local; compressed samples are in public/samples
+source/videos/
+*.log

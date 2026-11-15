@@ -1,0 +1,41 @@
+/* tokens.css — design tokens for the light "Mission Console" theme (owner's reference picture, 2026-11-15):
+   light grey-blue page, white cards, navy text, blue primary, orange Generate button and scan line, dark stage.
+   Every other stylesheet uses these variables, so the look can be changed in one place. */
+:root {
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --card-soft: #f5f7fb;
+  --border: #dde3ec;
+  --text: #14213d;
+  --muted: #5a6478;      /* 5.9:1 on white */
+  --primary: #1f5fae;    /* play button, active tab, links — white text 6.3:1 */
+  --primary-soft: #e4edf9;
+  --orange: #f39c33;     /* Generate button (dark text on it) */
+  --orange-hover: #f7ad55;
+  --on-orange: #1d1203;
+  --ok: #1e8a4c;
+  --err: #c0392b;
+  --err-soft: #fdecea;
+  --stage: #17213a;      /* dark stage behind pictures */
+  --stage-text: #e9eefb;
+  --accent: #1f5fae;     /* focus ring */
+
+  /* layer accents (Okabe-Ito, colour-blind safe) — used for borders/swatches, not body text */
+  --l-temperature: #e69f00;
+  --l-precipitation: #56b4e9;
+  --l-aerosol: #d55e00;
+  --l-vegetation: #009e73;
+
+  --shadow: 0 1px 2px rgba(20, 33, 61, 0.06), 0 6px 20px rgba(20, 33, 61, 0.06);
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --font-head: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --fs-base: 15px;
+  --lh: 1.5;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 150ms;
+  --t-med: 250ms;
+}

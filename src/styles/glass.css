@@ -1,0 +1,18 @@
+/* glass.css — page background and the white "card" panels (class .glass kept as the card class name).
+   No backdrop blur in the light theme. Fallbacks for forced colours and reduced motion live here too. */
+html { background: var(--bg); }
+body { margin: 0; color: var(--text); background: var(--bg); }
+
+.glass {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+@media (forced-colors: active) {
+  .glass { background: Canvas; border: 1px solid CanvasText; box-shadow: none; }
+}
